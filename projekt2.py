@@ -43,7 +43,9 @@ print(
 )
 namelist = []
 while active:
-    name = input(bcolors.YELLOW + f"skriv nåt roligt (sluta=q)(ta bort=x)(edit=e) ")
+    name = input(
+        bcolors.YELLOW + f"skriv nåt roligt (sluta=q/enter)(ta bort=x)(edit=e) "
+    )
     if name.lower() == "e":  # ser om input-ens små bokstäver är i villkoret
         if len(namelist) > 0:  # ser om listan har något i sig
             while True:
@@ -67,6 +69,9 @@ while active:
     elif name.lower() == "q":
         print(bcolors.BOLD + f"Din lista är {len(namelist)} ord lång.")
 
+        active = False
+    elif name == "":
+        print(bcolors.BOLD + f"Din lista är {len(namelist)} ord lång.")
         active = False
     elif name.lower() == "x":
         if len(namelist) > 0:
